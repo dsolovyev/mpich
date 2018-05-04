@@ -940,7 +940,7 @@ sub BuildMPIProgram {
     if ($verbose) { print STDERR "making $programname\n"; }
     if (! -x $programname) { $remove_this_pgm = 1; }
     else { $remove_this_pgm = 0; }
-    my $output = `make $programname 2>&1`;
+    my $output = `make $programname@EXEEXT@ 2>&1`;
     $rc = $?;
     if ($rc > 255) { $rc >>= 8; }
     if (! -x $programname) {
